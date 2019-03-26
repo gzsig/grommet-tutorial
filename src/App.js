@@ -9,12 +9,13 @@ import {
   ResponsiveContext,
 } from 'grommet';
 
-import { FormClose, Notification } from 'grommet-icons'
+import { FormClose, Menu } from 'grommet-icons'
+const logo = require('./images/banner.jpg');
 
 const theme = {
   global: {
     colors: {
-      brand: '#228BE6',
+      brand: '#7FCA75',
     },
     font: {
       family: 'Roboto',
@@ -23,6 +24,7 @@ const theme = {
     },
   },
 };
+
 
 const AppBar = (props) => (
   <Box
@@ -53,11 +55,12 @@ class App extends Component {
           <AppBar>
             <Heading level='3' margin='none'>Melon</Heading>
             <Button 
-              icon={<Notification />}
+              icon={<Menu />}
               onClick={() => this.setState(prevState => ({ showSidebar: !prevState.showSidebar }))} />
           </AppBar>
           <Box direction='row' flex overflow={{horizontal: 'hidden'}}>
             <Box flex align='center' justify='center'>
+              <img  className='banner' src={logo} alt='banner'/>
               App Body
             </Box>
             {(!showSidebar || size !== 'small') ? (
